@@ -1,0 +1,19 @@
+# Criar o projeto
+
+npx create-expo-app@latest --template
+Blank (Typescript)
+Coloca o nome do projeto
+
+Roda um npx expo start
+
+Criar uma pasta src em seguida pasta App e criar um Home.tsx
+dentro do App.Tsx deixar apenas o Home.
+
+Instalando Lucide Icons 
+rodando npm install lucide-react-native react-native-svg
+
+Instalando Expo Router
+colocando no app.json
+"plugins": ["expo-router"]
+rodando npx expo install expo-router
+
