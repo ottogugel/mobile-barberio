@@ -2,9 +2,19 @@ import { Text, View } from "react-native";
 import { styles } from "./style";
 import { Button } from "../components/button";
 import { Card } from "../components/card";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../@types/navigation";
+
+type NavigationProps = NativeStackNavigationProp<RootStackParamList>;
 
 export function Home() {
 
+    const navigation = useNavigation<NavigationProps>();
+ 
+    function handleSetSchedule() {
+        navigation.navigate('step1')
+    }
 
     return (
         <View style={styles.container}>     
@@ -17,7 +27,7 @@ export function Home() {
             </View>
 
             <View style={styles.schedule}>
-                <Button title="Agendar Horário" />        
+                <Button title="Agendar Horário" onPress={handleSetSchedule} />        
             </View>
 
             <View style={styles.serviceSection}>

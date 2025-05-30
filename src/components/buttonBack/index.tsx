@@ -1,4 +1,3 @@
-import { Calendar } from "lucide-react-native";
 import { Text, TouchableOpacity } from "react-native";
 import { styles } from "./style";
 
@@ -7,11 +6,10 @@ type ButtonProps = {
   onPress?: () => void;
 }
 
-export function Button({ title, onPress}: ButtonProps) {
+export function ButtonBack({ title, onPress}: ButtonProps) {
 
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Calendar size={20} color="white" />
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   )

@@ -7,11 +7,10 @@ type ButtonProps = {
   onPress?: () => void;
 }
 
-export function Button({ title, onPress}: ButtonProps) {
+export function ButtonNext({ title, onPress}: ButtonProps) {
 
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Calendar size={20} color="white" />
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   )
