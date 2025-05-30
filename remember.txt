@@ -17,3 +17,17 @@ colocando no app.json
 "plugins": ["expo-router"]
 rodando npx expo install expo-router
 
+Instalando React Navigation (stack e native-stack)
+npm install @react-navigation/stack
+npm install @react-navigation/native-stack
+
+Após instalar configurar uma pasta de routes com o index e o app.routes e também colocar o <Routes> no App.tsx
+
+Instalando o React Native Calendars
+npm i react-native-calendars
+
+Instalando o axios.
+npm install axios
+
+Instalando o date-fns
+npm install date-fns --save
