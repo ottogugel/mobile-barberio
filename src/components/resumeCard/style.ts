@@ -16,9 +16,14 @@ export const styles = StyleSheet.create({
         color: '#222',
         marginBottom: 4,
     },
-
+    cardContainer: {
+        display: 'flex', 
+        alignItems: 'center', 
+        flexDirection: 'row', 
+        gap: 4
+    },
     CardDesc: {
-        fontSize: 12,
+        fontSize: 15,
         color: '#555',
     },
 })

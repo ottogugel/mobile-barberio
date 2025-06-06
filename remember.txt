@@ -31,3 +31,58 @@ npm install axios
 
 Instalando o date-fns
 npm install date-fns --save
+
+import { format, parse, isValid } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+
+let formattedDate = null;
+
+  if (selectedDate) {
+    const parsed = parse(selectedDate, 'd/M/yyyy', new Date()); // aceita "6/5/2025"
+    if (isValid(parsed)) {
+      formattedDate = format(parsed, "dd 'de' MMMM 'de' yyyy", { locale: ptBR });
+    }
+  }
+
+
+Sobre levar os dados durante a navegação.
+No @types definir o que vai ser passado. 
+step: 2 {
+    selectedDate: string;
+}
+
+Enviar da página que você quer para a outra.
+    const selectedDate = `${day.day}/${day.month}/${day.year}`;
+    navigation.navigate('step2', { selectedDate });
+
+Receber os dados na página que você.
+import { RouteProp, useRoute } from "@react-navigation/native";
+
+type RouteProps = RouteProp<RootStackParamList, "step2">;
+const route = useRoute<RouteProps>();
+const { selectedDate } = route.params;
+
+E depois passe no componente 
+<ResumeCard selectedDate={selectedDate} />
+
+
+
+{/* Paginação Fictícia */}
+        <View style={{ flexDirection: 'row', marginVertical: 20 }}>
+          {[1, 2, 3, 4].map(step => (
+            <View
+              key={step}
+              style={{
+                width: 30,
+                height: 30,
+                borderRadius: 15,
+                marginHorizontal: 5,
+                backgroundColor: step === 3 ? "#3F88C5" : "#eee",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <Text style={{ color: step === 3 ? "#fff" : "#000" }}>{step}</Text>
+            </View>
+          ))}
+        </View>

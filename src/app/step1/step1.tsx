@@ -1,14 +1,14 @@
 import { Calendar, DateData, LocaleConfig } from "react-native-calendars";
-import { Text, View } from "react-native";
+import { Alert, ScrollView, Text, View } from "react-native";
 import { styles } from "./style";
 import { ButtonBack } from "../../components/buttonBack";
 import { ButtonNext } from "../../components/buttonNext";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../@types/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ResumeCard } from "../../components/resumeCard";
-import { api } from "../../services/api";
+import { StepHeader } from "../../components/stepHeader";
 
 type NavigationProps = NativeStackNavigationProp<RootStackParamList>;
 
@@ -37,28 +37,28 @@ LocaleConfig.defaultLocale = 'pt-br';
 
 export function Step1() {
 
-    const [dados, setDados] = useState([]);
-
     const [day, setDay] = useState<DateData>()
 
     const navigation = useNavigation<NavigationProps>();
+    
 
     function handleSetHour() {
-        navigation.navigate('step2')
+        if(!day) {
+            Alert.alert('Atenção', 'Por favor, selecione uma data antes de continuar.')
+            return;
+        }
+        const selectedDate = `${day.day}/${day.month}/${day.year}`;
+        navigation.navigate('step2', {selectedDate})
     }
-
-    useEffect(() => {
-        api.get('/funcionarios')
-        .then(res => setDados(res.data))
-        .catch(err => console.error(err))
-    })
 
     return (
         <View style={styles.container}>
+            <ScrollView showsVerticalScrollIndicator={false}>
             <Text style={styles.title}>Agende seu <Text style={{ color: '#3F88C5' }}>horário</Text></Text>
+            <StepHeader currentStep={1}  />
             <View style={styles.header}>
-                <Text>Selecione uma data</Text>
-                <Text>Selecione uma data disponível no calendário</Text>
+                <Text style={styles.selectDateTitle}>Selecione uma data</Text>
+                <Text style={styles.selectDateSubtitle}>Selecione uma data disponível no calendário</Text>
                 <View style={styles.subheader}>
                     <Calendar
                         style={styles.calendar}
@@ -95,6 +95,7 @@ export function Step1() {
             <View style={styles.resumecard}>
                 <ResumeCard selectedDate={day?.day && day?.month && day?.year ?`${day.day}/${day.month}/${day.year}` : undefined}  />
             </View>
+            </ScrollView>
         </View>
     )
 }
