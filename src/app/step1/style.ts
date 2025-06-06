@@ -22,7 +22,6 @@ export const styles = StyleSheet.create({
         borderColor: '#000000',
         backgroundColor: 'white',
         padding: 20,
-        marginTop: 15,
     },
     subheader: {
         marginTop: 15,
@@ -30,8 +29,16 @@ export const styles = StyleSheet.create({
         borderColor: '#E8E8E8',
         borderWidth: 2,
     },
+    selectDateTitle: {
+        fontSize: 20,
+        color: 'black',
+        fontWeight: 700,
+    },
+    selectDateSubtitle: {
+        color: '#7A7498',
+    },
     resumecard: {
         marginTop: 10,
-        width: '77%',
+        width: '100%',
     }
 })
