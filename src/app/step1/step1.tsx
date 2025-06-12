@@ -42,7 +42,7 @@ export function Step1() {
     const navigation = useNavigation<NavigationProps>();
     
 
-    function handleSetHour() {
+    function handleSetDate() {
         if(!day) {
             Alert.alert('Atenção', 'Por favor, selecione uma data antes de continuar.')
             return;
@@ -54,7 +54,9 @@ export function Step1() {
     return (
         <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={{ alignItems: "center", paddingTop: 20 }}>
             <Text style={styles.title}>Agende seu <Text style={{ color: '#3F88C5' }}>horário</Text></Text>
+            </View>
             <StepHeader currentStep={1}  />
             <View style={styles.header}>
                 <Text style={styles.selectDateTitle}>Selecione uma data</Text>
@@ -87,7 +89,7 @@ export function Step1() {
                         <ButtonBack title="Voltar" onPress={() => navigation.goBack()} />
                     </View>
                     <View>
-                        <ButtonNext title="Avançar" onPress={handleSetHour} />
+                        <ButtonNext title="Avançar" onPress={handleSetDate} />
                     </View>
                 </View>
             </View>

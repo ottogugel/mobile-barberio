@@ -2,14 +2,14 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: "#e6f0ff",
+        display: 'flex',
+        height: '100%',
+        backgroundColor: '#e6f0ff',
     },
     card: {
-        width: '90%',
         backgroundColor: 'white',
-        padding: 16,
-        margin: 10,
+        padding: 20,
+        margin: 16,
         borderRadius: 10,
         shadowColor: "#000",
         shadowOffset: { width: 0, height: 2 },
@@ -22,6 +22,23 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
         textAlign: 'center',
     },
+    calendar: {
+        borderRadius: 12,
+        borderColor: '#000000',
+    },
+    header: {
+        borderRadius: 12,
+        borderColor: '#000000',
+        backgroundColor: 'white',
+        padding: 20,
+        marginTop: 15,
+    },
+    subheader: {
+        marginTop: 15,
+        borderRadius: 12,
+        borderColor: '#E8E8E8',
+        borderWidth: 2,
+    },
     selectBarbeiroTitle: {
         fontSize: 20,
         color: 'black',
@@ -29,19 +46,8 @@ export const styles = StyleSheet.create({
     },
     selectBarbeiroSubtitle: {
         color: '#7A7498',
-        marginBottom: 10,
-    },
-    barbeiroItem: {
-        width: '45%',
-        borderWidth: 1,
-        borderColor: '#ccc',
-        padding: 16,
-        margin: 8,
-        borderRadius: 8,
-        backgroundColor: '#fff',
-        alignItems: 'center',
     },
     resumecard: {
-        width: '90%',
+        width: '92%',
     }
 })

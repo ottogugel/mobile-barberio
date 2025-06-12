@@ -7,4 +7,5 @@ export type Funcionario = {
     avaliacao?: number;
     experiencia?: number;
     atendimentos?: number;
+    ativo?: boolean;
 }

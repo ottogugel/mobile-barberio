@@ -1,4 +1,4 @@
-import { FlatList, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Alert, FlatList, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { ButtonBack } from "../../components/buttonBack";
 import { ButtonNext } from "../../components/buttonNext";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
@@ -27,19 +27,37 @@ export function Step2() {
 
     useEffect(() => {
         api.get('/funcionarios').then(response => {
-            setFuncionarios(response.data);
+            const barbeirosAtivos = response.data.filter((func: Funcionario) => func.ativo === true);
+            setFuncionarios(barbeirosAtivos);
         });
     }, []);
 
 
+    function handleSetBarber() {
+        if(!barbeiroSelecionado) {
+            Alert.alert('Atenção', 'Selecione um barbeiro antes de continuar.')
+        } else {
+            navigation.navigate('step3', {
+                selectedDate, 
+                selectedBarber: barbeiroSelecionado
+            });
+        }
+    }
+
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Agende seu <Text style={{ color: '#3F88C5' }}>horário</Text></Text>
+            <View style={{ alignItems: "center", paddingTop: 20 }}>
+            <Text style={styles.title}>
+                Agende seu <Text style={{ color: '#3F88C5' }}>horário</Text>
+            </Text>
+
             <StepHeader currentStep={2} />
-            <View>
+
+            <View style={styles.card}>
                 <Text style={styles.selectBarbeiroTitle}>Escolha um barbeiro</Text>
                 <Text style={styles.selectBarbeiroSubtitle}>Selecione o profissional de sua preferência</Text>
+
                 <FlatList
                     data={funcionarios}
                     keyExtractor={(item) => item.id.toString()}
@@ -54,11 +72,15 @@ export function Step2() {
                                 margin: 8,
                                 borderRadius: 8,
                                 backgroundColor: barbeiroSelecionado?.id === item.id ? '#e0f0ff' : '#fff',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                gap: 4,
+                                alignItems: 'center',
                             }}
                             onPress={() => setBarbeiroSelecionado(item)}
                         >
-                            <User size={20} color="#4a90e2" />
-                            <Text style={{ textAlign: 'center' , fontWeight: 'bold' }}>{item.nome}</Text>
+                            <User size={20} color="black" />
+                            <Text style={{ textAlign: 'center', fontWeight: 'bold' }}>{item.nome}</Text>
                         </TouchableOpacity>
                     )}
 
@@ -68,19 +90,15 @@ export function Step2() {
                         <ButtonBack title="Voltar" onPress={() => navigation.goBack()} />
                     </View>
                     <View>
-                        <ButtonNext title="Avançar" onPress={() => {
-                            if (!barbeiroSelecionado) {
-                                alert('Selecione um barbeiro antes de continuar.');
-                                return;
-                            }
-                        }} />
+                        <ButtonNext title="Avançar" onPress={handleSetBarber} />
                     </View>
                 </View>
             </View>
 
-            <View>
+            <View style={styles.resumecard}>
                 <ResumeCard selectedDate={selectedDate} selectedBarber={barbeiroSelecionado} />
             </View>
+          </View>
         </View>
     )
 }
