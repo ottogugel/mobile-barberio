@@ -6,5 +6,13 @@ export type RootStackParamList = {
   step2: {
     selectedDate: string;
   };
-
+  step3: {
+    selectedDate: string;
+    selectedBarber: Funcionario;
+  };
+  step4: {
+    selectedDate: string;
+    selectedBarber: Funcionario;
+    selectedHour: string;
+  };
 };
