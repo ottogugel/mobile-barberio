@@ -86,3 +86,8 @@ E depois passe no componente
             </View>
           ))}
         </View>
+
+
+// Tratamento de data/hora
+2025-06-15T12:00:00
+ANO-MES-DIATHH:MM

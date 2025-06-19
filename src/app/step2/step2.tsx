@@ -68,24 +68,26 @@ export function Step2() {
                             style={{
                                 borderWidth: 1,
                                 borderColor: barbeiroSelecionado?.id === item.id ? '#3F88C5' : '#ccc',
-                                padding: 16,
-                                margin: 8,
+                                padding: 12,
+                                margin: 2,
                                 borderRadius: 8,
                                 backgroundColor: barbeiroSelecionado?.id === item.id ? '#e0f0ff' : '#fff',
-                                display: 'flex',
-                                flexDirection: 'row',
-                                gap: 4,
                                 alignItems: 'center',
+                                flexDirection: 'row',
+                                gap: 8,
                             }}
                             onPress={() => setBarbeiroSelecionado(item)}
                         >
-                            <User size={20} color="black" />
-                            <Text style={{ textAlign: 'center', fontWeight: 'bold' }}>{item.nome}</Text>
+                            <User size={20} color="#3F88C5" />
+                            <Text style={{ textAlign: 'center', fontWeight: 'bold', width: 60 }} numberOfLines={1}>{item.nome}</Text>
                         </TouchableOpacity>
                     )}
+                    contentContainerStyle={{ paddingHorizontal: 10}}
+                    columnWrapperStyle={{ justifyContent: 'space-between'}}
 
                 />
-                <View style={{ display: 'flex', flexDirection: 'row', gap: 20, marginTop: 10, justifyContent: 'space-between', }}>
+                {/* BOTÕES */}
+                <View style={styles.button}>
                     <View>
                         <ButtonBack title="Voltar" onPress={() => navigation.goBack()} />
                     </View>
@@ -94,7 +96,7 @@ export function Step2() {
                     </View>
                 </View>
             </View>
-
+            {/* RESUMO */}
             <View style={styles.resumecard}>
                 <ResumeCard selectedDate={selectedDate} selectedBarber={barbeiroSelecionado} />
             </View>

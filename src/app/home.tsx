@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 import { styles } from "./style";
-import { Button } from "../components/button";
+import { Button } from "../components/buttonHome";
 import { Card } from "../components/card";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
