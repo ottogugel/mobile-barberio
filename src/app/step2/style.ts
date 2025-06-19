@@ -43,5 +43,12 @@ export const styles = StyleSheet.create({
     },
     resumecard: {
         width: '90%',
+    },
+    button: {
+        display: 'flex',
+        flexDirection: 'row', 
+        gap: 20, 
+        marginTop: 10, 
+        justifyContent: 'space-between', 
     }
 })
