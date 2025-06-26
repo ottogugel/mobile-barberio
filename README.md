@@ -4,7 +4,7 @@
 
 ## 🌍 Sobre o projeto
 
-O Barber iO App é um aplicativo mobile de agendamento de uma empresa voltada para o setor de barbearia, para ajudar os barbeiros e os clientes a realizarem os agendamentos e terem um excelente atendimento. Desenvolvido como parte do evento NLW Pocket Mobile da Rocketseat, o app combina simplicidade e funcionalidade para conectar pessoas a negócios locais, promovendo o consumo na região. 
+O Barber iO App é um aplicativo mobile de agendamento de uma empresa voltada para o setor de barbearia, para ajudar os barbeiros e os clientes a realizarem os agendamentos e terem um excelente atendimento. Desenvolvido como parte do projeto Barber iO Web, o app combina simplicidade e funcionalidade para agendamento de serviços e afins.
 
 Ideia realizada pelo [Renato Willon](https://github.com/renatowillon) e [Gabryel Araujo](https://github.com/gabryel-araujo)
 
