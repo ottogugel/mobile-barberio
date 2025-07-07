@@ -9,7 +9,7 @@ Roda um npx expo start
 Criar uma pasta src em seguida pasta App e criar um Home.tsx
 dentro do App.Tsx deixar apenas o Home.
 
-Instalando Lucide Icons 
+Instalando Lucide Icons
 rodando npm install lucide-react-native react-native-svg
 
 Instalando Expo Router
@@ -46,7 +46,7 @@ let formattedDate = null;
 
 
 Sobre levar os dados durante a navegação.
-No @types definir o que vai ser passado. 
+No @types definir o que vai ser passado.
 step: 2 {
     selectedDate: string;
 }
@@ -62,7 +62,7 @@ type RouteProps = RouteProp<RootStackParamList, "step2">;
 const route = useRoute<RouteProps>();
 const { selectedDate } = route.params;
 
-E depois passe no componente 
+E depois passe no componente
 <ResumeCard selectedDate={selectedDate} />
 
 
@@ -91,3 +91,5 @@ E depois passe no componente
 // Tratamento de data/hora
 2025-06-15T12:00:00
 ANO-MES-DIATHH:MM
+
+minDate={TodayString} Use a prop minDate no <Calendar /> passando a data atual (todayString) para que apenas o dia de hoje em diante seja selecionável:
