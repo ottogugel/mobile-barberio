@@ -1,32 +1,41 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-container: {
-    flexDirection: "row",
+  wrapper: {
+    backgroundColor: "#e9f0f7", // borda ao redor de todos
+    padding: 8,
+    borderRadius: 40,
+    alignItems: "center",
     justifyContent: "center",
+    marginVertical: 16,
+  },
+  container: {
+    flexDirection: "row",
     gap: 12,
-    marginVertical: 24,
   },
   circle: {
     width: 32,
     height: 32,
     borderRadius: 16,
-    borderWidth: 1,
-    borderColor: "#D1D5DB",
-    justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff",
+    justifyContent: "center",
+    borderWidth: 1,
   },
-  active: {
+  circleCompleted: {
     backgroundColor: "#3F88C5",
     borderColor: "#3F88C5",
   },
+  circlePending: {
+    backgroundColor: "#fff",
+    borderColor: "#A4C8E9",
+  },
   number: {
-    color: "#6B7280",
     fontWeight: "bold",
   },
-  activeNumber: {
+  numberCompleted: {
     color: "#fff",
   },
-})
-
+  numberPending: {
+    color: "#3F88C5",
+  },
+});
