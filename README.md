@@ -1,5 +1,5 @@
 # Barber iO App
-
+<img src="https://us-west-2.graphassets.com/cm7pnykhl06ks07mybtwt3taq/cmfodp8w5mejv06n4w9c7yoao" />
 <br>
 
 ## 🌍 Sobre o projeto
