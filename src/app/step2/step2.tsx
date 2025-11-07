@@ -26,7 +26,7 @@ export function Step2() {
     const [funcionarios, setFuncionarios] = useState<Funcionario[]>([]);
 
     useEffect(() => {
-        api.get('/funcionarios').then(response => {
+        api.get('/public/funcionarios').then(response => {
             const barbeirosAtivos = response.data.filter((func: Funcionario) => func.ativo === true);
             setFuncionarios(barbeirosAtivos);
         });
@@ -38,7 +38,7 @@ export function Step2() {
             Alert.alert('Atenção', 'Selecione um barbeiro antes de continuar.')
         } else {
             navigation.navigate('step3', {
-                selectedDate, 
+                selectedDate,
                 selectedBarber: barbeiroSelecionado
             });
         }

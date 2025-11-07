@@ -28,7 +28,7 @@ export function Step4() {
   const [clientData, setClientData] = useState({ nome: "", telefone: "" });
 
   useEffect(() => {
-    api.get("/servico").then((response) => {
+    api.get("/public/servico").then((response) => {
       setServico(response.data);
     });
   }, []);
